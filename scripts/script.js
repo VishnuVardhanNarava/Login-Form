@@ -1,4 +1,5 @@
 let regexp = /[\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=\[\]\{\}\|\;\'\:\"\,\.\<\>\?]/g;
+
 document.getElementById("loginform").addEventListener("submit", event =>{
     event.preventDefault();
     let username = document.getElementById("username").value;
@@ -8,11 +9,5 @@ document.getElementById("loginform").addEventListener("submit", event =>{
 })
 
 document.getElementById("username").addEventListener("input", () => {
-    let usrname = document.getElementById("username").value;
-    if(regexp.test(usrname)){
-        let runame = usrname.replace(/[\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=\[\]\{\}\|\;\'\:\"\,\.\<\>\?]/g, "")
-        document.getElementById("username").value = runame;
-    }else{
-        return true;
-    }
+    document.getElementById("username").value = document.getElementById("username").value.replace(/[\~\!\@\#\$\%\^\&\*\(\)\_\+\-\=\[\]\{\}\|\;\'\:\"\,\.\<\>\?]/g, "");
 })
